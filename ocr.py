@@ -34,14 +34,14 @@ def detect_text(image_path: str) -> str:
 
 def create_output_path(input_folder: str) -> str:
     """入力フォルダのパスから出力ファイルのパスを生成する"""
-    # inputs/book_title/chapter# から outputs/book_title/book_title__chapter#.txt を生成
+    # input_files/book_title/chapter# から output_files/book_title/book_title__chapter#.txt を生成
     parts = input_folder.split(os.sep)
-    if len(parts) >= 3 and parts[0] == "inputs":
+    if len(parts) >= 3 and parts[0] == "input_files":
         book_title = parts[1]
         chapter = parts[2]
 
-        # outputs/book_titleディレクトリが存在しない場合は作成
-        output_dir = os.path.join("outputs", book_title)
+        # output_files/book_titleディレクトリが存在しない場合は作成
+        output_dir = os.path.join("output_files", book_title)
         os.makedirs(output_dir, exist_ok=True)
 
         # 出力ファイル名を生成
@@ -49,7 +49,7 @@ def create_output_path(input_folder: str) -> str:
         return os.path.join(output_dir, output_filename)
     else:
         raise ValueError(
-            "入力フォルダは 'inputs/book_title/chapter#' の形式である必要があります"
+            "入力フォルダは 'input_files/book_title/chapter#' の形式である必要があります"
         )
 
 
