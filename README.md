@@ -39,11 +39,14 @@ input_files/
 ```
 
 ### 3. OCR処理を実行
-次のコマンドでOCRを実行します。`BOOK`には書籍タイトル（`{{ your_book_title }}` に対応）,`CHAPTER`にはChapter番号（`{{ chapter_number }}` に対応）を指定してください。
+次のコマンドでOCRを実行します。`BOOK`には書籍タイトル（2.で配置した`{{ your_book_title }}`ディレクトリに対応）,`CHAPTER`にはChapter番号（`{{ chapter_number }}`に対応）を指定してください。
 現状、Chapter事に実行する必要があります。（ToDo: 複数ChapterをまとめてOCRできるようにする）
 
 ```bash
-make ocr BOOK=your_book_title CHAPTER=1
+ make ocr BOOK={{ your_book_title }} CHAPTER={{ hapter_number }} 
+
+ # example: sample_bookの1章目をOCR
+ make ocr BOOK=sample_book CHAPTER=1
 ```
 
 結果は次の場所に出力されます。
